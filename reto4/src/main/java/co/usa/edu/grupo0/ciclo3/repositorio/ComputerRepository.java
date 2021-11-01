@@ -32,4 +32,10 @@ public class ComputerRepository {
     public Computer save(Computer computer){
         return crudComputer.save(computer);
     }  
+   
+    public void delete(Computer computer){
+        crudComputer.delete(computer);
+    }
+    
+    
 }
