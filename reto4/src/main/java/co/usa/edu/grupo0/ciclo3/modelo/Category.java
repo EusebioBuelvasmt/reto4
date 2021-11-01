@@ -6,6 +6,7 @@
 package co.usa.edu.grupo0.ciclo3.modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -22,7 +23,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "category")
-public class Category {
+public class Category implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -66,7 +67,4 @@ public class Category {
     public void setComputer(List<Computer> computers) {
         this.computers = computers;
     }
-
-   
-    
 }

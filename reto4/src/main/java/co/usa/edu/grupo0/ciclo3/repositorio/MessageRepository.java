@@ -21,18 +21,25 @@ import org.springframework.stereotype.Repository;
 public class MessageRepository {
     
     @Autowired
-    private MessageCrudRepository crudMessage;
+    private MessageCrudRepository messageCrud;
     
     public List<Message> getAll(){
-        return (List<Message>) crudMessage.findAll();
+        return (List<Message>) messageCrud.findAll();
     }
     
     public Optional<Message> getMessage(int id){
-        return crudMessage.findById(id);
+        return messageCrud.findById(id);
     }
     
     public Message save(Message message){
-        return crudMessage.save(message);
-    }  
+        return messageCrud.save(message);
+    }
+    public boolean deleteMessage(int messageId) {
+        Boolean aBoolean = getMessage(messageId).map(message -> {
+            messageCrud.delete(message);
+            return true;
+        }).orElse(false);
+        return aBoolean;
+    }
     
 }

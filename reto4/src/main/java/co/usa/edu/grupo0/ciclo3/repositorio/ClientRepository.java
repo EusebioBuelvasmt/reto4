@@ -26,12 +26,15 @@ public class ClientRepository {
         return (List<Client>) crudClient.findAll();
     }
 
-    public Optional<Client> getClient(int idClient) {
-        return crudClient.findById(idClient);
+    public Optional<Client> getClient(int id) {
+        return crudClient.findById(id);
     }
 
     public Client save(Client client) {
         return crudClient.save(client);
+    }
+    public void delete(Client client){
+        crudClient.delete(client);
     }
 
 }
